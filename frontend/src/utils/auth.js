@@ -1,4 +1,5 @@
-export const BASE_URL = 'https://auth.nomoreparties.co';
+// export const BASE_URL = 'https://auth.nomoreparties.co';
+export const BASE_URL = 'https://api.oksana.bikova.nomoreparties.sbs';
 
 function checkResponse(res) {
   if (res.ok) {
