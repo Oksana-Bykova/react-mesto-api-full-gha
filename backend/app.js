@@ -63,9 +63,9 @@ app.get('/signout', (req, res) => {
   res.clearCookie('jwt').send({ message: 'Выход' });
 });
 
-// app.use(router);
-app.use('/api', router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(router);
+
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
