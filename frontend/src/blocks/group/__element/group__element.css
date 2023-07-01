@@ -1,0 +1,7 @@
+.group__element {
+  max-width: 282px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}

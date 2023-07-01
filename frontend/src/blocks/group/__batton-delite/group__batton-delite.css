@@ -1,0 +1,15 @@
+.group__batton-delite {
+  cursor: pointer;
+  background-image: url(../../../images/Group.svg);
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: 0;
+}
+
+.group__batton-delite:hover {
+  opacity: 0.6;
+}

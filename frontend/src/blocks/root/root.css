@@ -1,0 +1,7 @@
+.root {
+  width: 100%;
+  min-width: 320px;
+  background-color:  rgba(0, 0, 0, 1);
+  margin: 0 auto;
+  min-height: 100vh;
+}

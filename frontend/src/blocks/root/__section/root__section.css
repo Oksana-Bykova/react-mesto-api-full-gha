@@ -1,0 +1,9 @@
+.root__section {
+  margin-bottom: 36px;
+}
+
+@media screen and (min-width: 912px) {
+  .root__section {
+    margin-bottom: 47.25px;
+  }
+}

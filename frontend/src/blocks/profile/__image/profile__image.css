@@ -1,0 +1,15 @@
+.profile__image {
+  display: flex;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 912px) {
+  .profile__image {
+    margin: 0;
+  }
+}
+

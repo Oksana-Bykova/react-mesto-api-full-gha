@@ -1,0 +1,19 @@
+.popup__container {
+  position: relative;
+  font-family: 'Inter', 'Arial', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  min-width: 282px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__container {
+    min-width: 430px;
+  }
+}

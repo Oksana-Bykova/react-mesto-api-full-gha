@@ -1,0 +1,5 @@
+.group__container-like {
+  display: block;
+  min-width: 22px;
+  max-height: 35px;
+}

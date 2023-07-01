@@ -1,0 +1,15 @@
+.profile__name {
+  max-width: 282px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+@media screen and (min-width: 912px) {
+  .profile__name {
+    margin: 0;
+    max-width: 336px;
+    justify-content: start;
+  }
+}

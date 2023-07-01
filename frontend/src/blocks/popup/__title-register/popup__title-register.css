@@ -1,0 +1,17 @@
+.popup__title-register {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  margin: 28px auto 73px;
+  max-width: 358px;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__title-register {
+    font-size: 24px;
+    line-height: 29px;
+     margin: 0px auto 60px ;
+    
+  }
+}

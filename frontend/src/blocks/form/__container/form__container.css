@@ -1,0 +1,19 @@
+.form__container {
+  margin: 40px auto 0;
+  font-family: 'Inter', 'Arial', 'Helvetica Neue', sans-serif;
+  font-style: normal;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: transparent;
+  border: 1px;
+}
+
+@media screen and (min-width: 1280px) {
+  .form__container {
+    margin: 60px auto 0;
+    max-width: 358px;
+  }
+}
