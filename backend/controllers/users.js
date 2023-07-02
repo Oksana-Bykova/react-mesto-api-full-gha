@@ -123,7 +123,7 @@ const login = (req, res, next) => {
           if (isValidUser) {
             const jwt = jsonWebToken.sign({
               _id: user._id,
-            }, 'SECRET');
+            }, process.env['JWT_SECRET']);
             res.cookie('jwt', jwt, {
               maxAge: 360000,
               httpOnly: true,
