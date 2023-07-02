@@ -251,7 +251,7 @@ function App() {
           onClose={closeAllPopups}
         />
 
-        //Попап успешной и неуспешной регистрации
+        {/*Попап успешной и неуспешной регистрации*/}
         <InfoTooltip succses={succses} isOpen={isRegisterPopupOpen} onClose={closeAllPopups}/>
       </div>
     </CurrentUserContext.Provider>

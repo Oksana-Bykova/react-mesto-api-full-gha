@@ -121,15 +121,10 @@ const login = (req, res, next) => {
       bcrypt.compare(String(password), user.password)
         .then((isValidUser) => {
           if (isValidUser) {
-            const jwt = jsonWebToken.sign({
+            const token = jsonWebToken.sign({
               _id: user._id,
-            }, process.env['JWT_SECRET']);
-            res.cookie('jwt', jwt, {
-              maxAge: 360000,
-              httpOnly: true,
-              sameSite: true,
-            });
-            res.status(200).send({ data: user.toJSON() });
+            }, process.env['JWT_SECRET'], { expiresIn: '7d' });
+            res.status(200).send({ jwt: token });
           } else {
             next(new Unauthorized());
           }
