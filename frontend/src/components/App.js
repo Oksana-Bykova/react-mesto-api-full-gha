@@ -220,7 +220,7 @@ function App() {
              />} />
 
             <Route path="/signup" element={<Register onRegister={handleSubmitRegister}/>} /> 
-            <Route path="/" element={loggedIn? <Navigate to="/my-profile" /> : <Navigate to="/sign-in" replace/>} />
+            <Route path="/" element={loggedIn? <Navigate to="/my-profile" /> : <Navigate to="/signin" replace/>} />
           </Routes>
           
         </div>
