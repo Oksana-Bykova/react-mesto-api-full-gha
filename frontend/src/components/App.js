@@ -168,7 +168,7 @@ function App() {
     .then((res) => {
       setSuccses(true);
       handleRegisterAvatar();
-      navigate('/sign-in', {replace: true});
+      navigate('/signin', {replace: true});
       
   })
     .catch((err) => {
@@ -203,7 +203,7 @@ function App() {
           
           <Routes>
 
-            <Route path="/sign-in" element={<Login  onLogin={handleSubmitLogin} />} />
+            <Route path="/signin" element={<Login  onLogin={handleSubmitLogin} />} />
 
             <Route path="/my-profile" element={<ProtectedRouteElement element={Main}
              loggedIn={loggedIn}
@@ -219,7 +219,7 @@ function App() {
             onOut={onOut}
              />} />
 
-            <Route path="/sign-up" element={<Register onRegister={handleSubmitRegister}/>} /> 
+            <Route path="/signup" element={<Register onRegister={handleSubmitRegister}/>} /> 
             <Route path="/" element={loggedIn? <Navigate to="/my-profile" /> : <Navigate to="/sign-in" replace/>} />
           </Routes>
           
