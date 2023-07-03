@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.31.188
+IP 158.160.31.188
 
 Frontend https://oksana.bikova.nomoreparties.sbs/
 
