@@ -186,7 +186,7 @@ function App() {
    function handleSubmitLogin (arr) {
     auth.authoize(arr.email, arr.password)
     .then((data) => {
-      
+      console.log(data);
       if (data.jwt){
         localStorage.setItem('jwt', data.jwt)
         handleloggedIn(arr);

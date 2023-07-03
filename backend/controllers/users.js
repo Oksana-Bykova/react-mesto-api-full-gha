@@ -125,6 +125,7 @@ const login = (req, res, next) => {
               _id: user._id,
             }, process.env['JWT_SECRET'], { expiresIn: '7d' });
             res.status(200).send({ jwt: token });
+            console.log('токен сохранился')
           } else {
             next(new Unauthorized());
           }
