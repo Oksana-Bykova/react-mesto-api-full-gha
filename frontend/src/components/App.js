@@ -187,8 +187,8 @@ function App() {
     auth.authoize(arr.email, arr.password)
     .then((data) => {
       
-      if (data.token){
-        localStorage.setItem('jwt', data.token)
+      if (data.jwt){
+        localStorage.setItem('jwt', data.jwt)
         handleloggedIn(arr);
         navigate('/my-profile')
       }})
