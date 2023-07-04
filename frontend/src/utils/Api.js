@@ -74,9 +74,9 @@ class Api {
 
 //***********************************************************************создаем экземпляр класса Api
 const api = new Api({
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-62",
+  baseUrl: "https://api.oksana.bikova.nomoreparties.sbs",
   headers: {
-    authorization: "1a1902ac-0572-4b58-9e09-22d73d49699e",
+   // authorization: "1a1902ac-0572-4b58-9e09-22d73d49699e",
     "Content-Type": "application/json",
   },
 });
