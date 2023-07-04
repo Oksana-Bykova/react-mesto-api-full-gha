@@ -1,6 +1,6 @@
 //export const BASE_URL = 'https://auth.nomoreparties.co';
  export const BASE_URL = 'https://api.oksana.bikova.nomoreparties.sbs';
-// export const BASE_URL = 'localhost:3001';
+
 
 
 function checkResponse(res) {
