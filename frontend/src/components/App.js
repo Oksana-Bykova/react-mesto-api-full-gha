@@ -71,6 +71,7 @@ function App() {
     Promise.all([api.getProfileInformation(), api.getInitialCards()])
 
       .then((data) => {
+        console.log(data);
         setCurrentUser(data[0]);
         setCards(data[1]);
       })
