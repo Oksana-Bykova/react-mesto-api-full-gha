@@ -152,7 +152,7 @@ function App() {
       auth.getContent(jwt)
         .then((data) => {
           handleloggedIn(data);
-          navigate('/my-profile');
+          navigate('/');
         })
         .catch((err) => console.log(err));
     };
@@ -191,7 +191,7 @@ function App() {
       if (data.jwt){
         localStorage.setItem('jwt', data.jwt)
         handleloggedIn(arr);
-        navigate('/my-profile')
+        navigate('/')
       }})
       .catch((err) => console.log(err));
       
@@ -206,7 +206,7 @@ function App() {
 
             <Route path="/signin" element={<Login  onLogin={handleSubmitLogin} />} />
 
-            <Route path="/my-profile" element={<ProtectedRouteElement element={Main}
+            <Route path="/" element={<ProtectedRouteElement element={Main}
              loggedIn={loggedIn}
              onEditAvatar={handleEditAvatarClick}
             onEditProfile={handleEditProfileClick}
@@ -221,7 +221,7 @@ function App() {
              />} />
 
             <Route path="/signup" element={<Register onRegister={handleSubmitRegister}/>} /> 
-            <Route path="/" element={loggedIn? <Navigate to="/my-profile" /> : <Navigate to="/signin" replace/>} />
+            <Route path="*" element={loggedIn? <Navigate to="/" /> : <Navigate to="/signin" replace/>} />
           </Routes>
           
         </div>
