@@ -5,7 +5,7 @@ const auth = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    next(new Unauthorized());
+    next(new Unauthorized('проблема с токеном'));
     return;
   }
 
