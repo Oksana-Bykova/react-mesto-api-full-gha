@@ -5,6 +5,7 @@ const { UserNotFound } = require('../errors/not-found-err');
 const { BadRequest } = require('../errors/bad-request');
 const { Unauthorized } = require('../errors/unauthorized');
 const { ConflictingRequest } = require('../errors/conflicting-request');
+
 const { NODE_ENV, JWT_SECRET } = process.env;
 
 const getUsersById = (req, res, next) => {
