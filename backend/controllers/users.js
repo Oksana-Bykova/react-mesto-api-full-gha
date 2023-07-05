@@ -5,6 +5,7 @@ const { UserNotFound } = require('../errors/not-found-err');
 const { BadRequest } = require('../errors/bad-request');
 const { Unauthorized } = require('../errors/unauthorized');
 const { ConflictingRequest } = require('../errors/conflicting-request');
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const getUsersById = (req, res, next) => {
   User.findById(req.params.userId)
@@ -123,9 +124,8 @@ const login = (req, res, next) => {
           if (isValidUser) {
             const token = jsonWebToken.sign({
               _id: user._id,
-            }, process.env['JWT_SECRET'], { expiresIn: '7d' });
+            }, NODE_ENV === 'production' ? JWT_SECRET : 'secret', { expiresIn: '7d' });
             res.status(200).send({ jwt: token });
-            console.log('токен сохранился')
           } else {
             next(new Unauthorized());
           }
