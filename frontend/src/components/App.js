@@ -41,6 +41,9 @@ function App() {
  //собираем емайл из логина
  const [userEmail, setUserEmail] = React.useState({});
 
+ //стейт для определения вошел пользователь в ситсему или нет
+ const [loggedIn, setLoggedIn] = React.useState(false);
+
   // 4 функцйии - обработчика для событий клика на кнопки -открытия попапов
   function handleEditProfileClick() {
     setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
@@ -71,17 +74,17 @@ function App() {
     Promise.all([api.getProfileInformation(), api.getInitialCards()])
 
       .then((data) => {
-        console.log(data);
         setCurrentUser(data[0]);
         setCards(data[1]);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [ loggedIn]);
 
   //лайки для карточки
   function handleCardLike(card) {
     // проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((item) => item._id === currentUser._id);
+    console.log(card);
+    const isLiked = card.likes.some((item) => item === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
@@ -138,8 +141,7 @@ function App() {
       .catch((err) => console.log(err));
   }
 
-   //стейт для определения вошел пользователь в ситсему или нет
-   const [loggedIn, setLoggedIn] = React.useState(false);
+   
    function handleloggedIn(data) {
     setLoggedIn(true);
     setUserEmail(data.email);
@@ -161,6 +163,9 @@ function App() {
     React.useEffect(()=> {
       tokenCheck();
     },[]);
+
+
+  
 
 //сабмит формы регистрации
    function handleSubmitRegister(email, password) {
@@ -191,7 +196,8 @@ function App() {
       if (data.jwt){
         localStorage.setItem('jwt', data.jwt)
         handleloggedIn(arr);
-        navigate('/')
+        tokenCheck();
+        navigate('/');
       }})
       .catch((err) => console.log(err));
       

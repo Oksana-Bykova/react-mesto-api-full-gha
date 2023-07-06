@@ -18,7 +18,11 @@ function Card(props) {
 
   const userContext = useContext(CurrentUserContext);
   const isOwn = props.card.owner === userContext._id;
-  const isLiked = props.card.likes.some(item => item === userContext._id);
+  //console.log(props.card.owner);
+  //console.log(props.card)
+  //console.log(props.card.likes);
+  //console.log(userContext._id);
+  const isLiked = props.card.likes.some((item) => item === userContext._id);
   const cardLikeButtonClassName = `group__button ${
     isLiked && "group__button_active"
   }`;

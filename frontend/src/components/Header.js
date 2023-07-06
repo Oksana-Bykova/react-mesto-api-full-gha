@@ -11,7 +11,7 @@ function Header(props) {
         <span className="header__email">{props.userEmail}</span>
         <p className="header__link" onClick={props.onOut}>Выйти</p>
       </div>
-      <Link to={`${props.headerMenu === "Войти"? "/sign-in" :"/sign-up" }`} className={`${props.loggedIn? "header__profile-info-hide" : "header__link" }`}>{props.headerMenu}</Link>
+      <Link to={`${props.headerMenu === "Войти"? "/signin" :"/signup" }`} className={`${props.loggedIn? "header__profile-info-hide" : "header__link" }`}>{props.headerMenu}</Link>
       
     </header>
   );
