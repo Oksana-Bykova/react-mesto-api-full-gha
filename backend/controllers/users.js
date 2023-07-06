@@ -81,7 +81,7 @@ const updateProfile = (req, res, next) => {
         next(new UserNotFound());
         return;
       }
-      res.status(200).send({ data: user });
+      res.status(200).send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -103,7 +103,7 @@ const updateAvatar = (req, res, next) => {
         next(new UserNotFound());
         return;
       }
-      res.send({ data: user });
+      res.send(user);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
