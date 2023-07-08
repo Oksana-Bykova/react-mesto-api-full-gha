@@ -80,7 +80,7 @@ const api = new Api({
   headers: {
    // authorization: "1a1902ac-0572-4b58-9e09-22d73d49699e",
     "Content-Type": "application/json",
-    "authorization": `Bearer ${localStorage.getItem('jwt')}`,
+    "Authorization": `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 export { api };

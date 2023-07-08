@@ -75,7 +75,7 @@ function App() {
       Promise.all([api.getProfileInformation(), api.getInitialCards()])
       .then((data) => {
         setCurrentUser(data[0]);
-        console.log(data[0]);
+        //console.log(data[0]);
         setCards(data[1]);
       })
       .catch((err) => console.log(err));
@@ -157,10 +157,13 @@ function App() {
    //сохраняем токен 
    function tokenCheck() {
     const jwt = localStorage.getItem('jwt');
+    console.log(jwt);
     if (jwt) {
       auth.getContent(jwt)
         .then((data) => {
+          console.log(data);
           handleloggedIn(data);
+          setCurrentUser(data);
           navigate('/');
         })
         .catch((err) => console.log(err));
