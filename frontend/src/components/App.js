@@ -71,14 +71,21 @@ function App() {
   }
 
   React.useEffect(() => {
-    Promise.all([api.getProfileInformation(), api.getInitialCards()])
-
+    if (loggedIn) {
+      Promise.all([api.getProfileInformation(), api.getInitialCards()])
       .then((data) => {
         setCurrentUser(data[0]);
+        console.log(data[0]);
         setCards(data[1]);
       })
       .catch((err) => console.log(err));
+    }
+    
   }, [ loggedIn]);
+
+  React.useEffect(()=> {
+    tokenCheck();
+  },[]);
 
   //лайки для карточки
   function handleCardLike(card) {
@@ -93,7 +100,7 @@ function App() {
         setCards((state) => state.map((c) => (c._id === card._id ? data : c)));
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   //удаление карточек
   function handleCardDelete(card) {
@@ -160,13 +167,7 @@ function App() {
     };
   }
 
-    React.useEffect(()=> {
-      tokenCheck();
-    },[]);
-
-
-  
-
+    
 //сабмит формы регистрации
    function handleSubmitRegister(email, password) {
     
@@ -183,9 +184,11 @@ function App() {
       handleRegisterAvatar()})
    }
 
+// выход
    function onOut() {
     setLoggedIn(false);
     localStorage.removeItem('jwt');
+    console.log('выход успешный');
    };
 
    //сабмит авторизации(ввода логина)
@@ -193,8 +196,9 @@ function App() {
     auth.authoize(arr.email, arr.password)
     .then((data) => {
       console.log(data);
+      console.log(arr);
       if (data.jwt){
-        localStorage.setItem('jwt', data.jwt)
+        localStorage.setItem('jwt', data.jwt);
         handleloggedIn(arr);
         tokenCheck();
         navigate('/');

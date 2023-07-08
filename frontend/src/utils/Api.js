@@ -14,6 +14,7 @@ class Api {
   getInitialCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: "GET",
+      credentials: "include",
       headers: this.headers,
     }).then((res) => this._checkResponse(res));
   }
@@ -32,6 +33,7 @@ class Api {
   getProfileInformation() {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
+      credentials: "include",
       headers: this.headers,
     }).then((res) => this._checkResponse(res));
   }
@@ -78,7 +80,7 @@ const api = new Api({
   headers: {
    // authorization: "1a1902ac-0572-4b58-9e09-22d73d49699e",
     "Content-Type": "application/json",
-    authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    "authorization": `Bearer ${localStorage.getItem('jwt')}`,
   },
 });
 export { api };
