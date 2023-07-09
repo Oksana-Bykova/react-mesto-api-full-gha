@@ -14,7 +14,6 @@ class Api {
   getInitialCards() {
     return fetch(`${this.baseUrl}/cards`, {
       method: "GET",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -39,7 +38,6 @@ class Api {
   getProfileInformation() {
     return fetch(`${this.baseUrl}/users/me`, {
       method: "GET",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -98,9 +96,5 @@ class Api {
 //***********************************************************************создаем экземпляр класса Api
 const api = new Api({
   baseUrl: "https://api.oksana.bikova.nomoreparties.sbs",
-  //headers: {
-  //  "Content-Type": "application/json",
-  //  authorization: `Bearer ${localStorage.getItem('jwt')}`,
- // },
 });
 export { api };

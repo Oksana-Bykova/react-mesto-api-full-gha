@@ -1,6 +1,5 @@
 import React from "react";
 
-import Header from "./Header.js";
 import Main from "./Main.js";
 
 import { PopupWithForm } from "./PopupWithForm.js";
@@ -75,7 +74,6 @@ function App() {
       Promise.all([api.getProfileInformation(), api.getInitialCards()])
       .then((data) => {
         setCurrentUser(data[0]);
-        //console.log(data[0]);
         setCards(data[1]);
       })
       .catch((err) => console.log(err));
@@ -162,12 +160,8 @@ function App() {
     if (jwt) {
       auth.getContent(jwt)
         .then((data) => {
-          console.log(data);
           handleloggedIn(data);
-          setCurrentUser(data);
-
-          navigate('/');
-          console.log(currentUser);
+          navigate('/', {replace: true});
         })
         .catch((err) => console.log(err));
     };
@@ -194,21 +188,17 @@ function App() {
    function onOut() {
     setLoggedIn(false);
     localStorage.removeItem('jwt');
-    console.log('выход успешный');
-    console.log(loggedIn);
+    console.log('вы вышли из профиля');
    };
 
    //сабмит авторизации(ввода логина)
    function handleSubmitLogin (arr) {
     auth.authoize(arr.email, arr.password)
     .then((data) => {
-      console.log(data);
-      console.log(arr);
       if (data.jwt){
         localStorage.setItem('jwt', data.jwt);
         handleloggedIn(arr);
-        tokenCheck();
-        //navigate('/');
+        navigate('/', {replace: true});
       }})
       .catch((err) => console.log(err));
       
