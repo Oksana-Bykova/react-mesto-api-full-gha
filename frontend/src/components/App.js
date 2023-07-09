@@ -87,6 +87,7 @@ function App() {
     tokenCheck();
   },[]);
 
+
   //лайки для карточки
   function handleCardLike(card) {
     // проверяем, есть ли уже лайк на этой карточке
@@ -164,11 +165,13 @@ function App() {
           console.log(data);
           handleloggedIn(data);
           setCurrentUser(data);
+
           navigate('/');
+          console.log(currentUser);
         })
         .catch((err) => console.log(err));
     };
-  }
+  };
 
     
 //сабмит формы регистрации
@@ -192,6 +195,7 @@ function App() {
     setLoggedIn(false);
     localStorage.removeItem('jwt');
     console.log('выход успешный');
+    console.log(loggedIn);
    };
 
    //сабмит авторизации(ввода логина)
@@ -204,7 +208,7 @@ function App() {
         localStorage.setItem('jwt', data.jwt);
         handleloggedIn(arr);
         tokenCheck();
-        navigate('/');
+        //navigate('/');
       }})
       .catch((err) => console.log(err));
       
